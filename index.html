@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
+
+    <script src="script.js" defer></script>
+    <title>Bill Split</title>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Bill Split App</h1>
+    </div>
+
+    <div class="container">
+      <div class="mb-4">
+        <label for="billAmount" class="form-label"
+          >Enter Bill Amount (₹):</label
+        >
+        <div class="input-group">
+          <span class="input-group-text">₹</span>
+          <input
+            type="number"
+            id="billAmount"
+            class="form-control"
+            placeholder="Enter total bill amount"
+          />
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label for="tipPercentage" class="form-label"
+          >Select Tip Percentage:</label
+        >
+        <div class="btn-group" role="group" aria-label="Tip Options">
+          <button
+            type="button"
+            class="btn btn-outline-primary"
+            onclick="selectTip(5, this)"
+          >
+            5%
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-primary"
+            onclick="selectTip(10, this)"
+          >
+            10%
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-primary"
+            onclick="selectTip(15, this)"
+          >
+            15%
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-primary"
+            onclick="selectTip(25, this)"
+          >
+            25%
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-primary"
+            onclick="selectTip(50, this)"
+          >
+            50%
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-primary"
+            onclick="selectTip(75, this)"
+          >
+            75%
+          </button>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label for="customTip" class="form-label">Custom Tip Percentage:</label>
+        <input
+          type="number"
+          id="customTip"
+          class="form-control"
+          placeholder="Enter custom tip percentage"
+          oninput="customTipSelected()"
+        />
+      </div>
+
+      <div class="mb-4">
+        <label for="numPeople" class="form-label">Number of People:</label>
+        <input
+          type="number"
+          id="numPeople"
+          class="form-control"
+          placeholder="Enter number of people"
+        />
+      </div>
+
+      <button class="btn btn-primary w-100" onclick="generateBill()">
+        Generate Bill
+      </button>
+
+      <div class="result" id="resultSection" style="display: none">
+        <h5>Tip Amount: ₹<span id="tipAmount">0.00</span></h5>
+        <h5>Total Bill (with Tip): ₹<span id="totalBill">0.00</span></h5>
+        <h5>Each Person Pays: ₹<span id="eachPersonBill">0.00</span></h5>
+      </div>
+
+      <button class="btn btn-danger w-100 reset-btn" onclick="resetForm()">
+        Reset
+      </button>
+    </div>
+  </body>
+</html>
